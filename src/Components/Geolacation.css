@@ -1,0 +1,21 @@
+.weather-contain{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:5px 5px;
+    border:1px solid black;
+    margin:45px 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 19px black;
+    background-color:lightgray;
+    width: 80vw;
+    max-width: 1200px;
+    
+    
+}
+.icono{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
