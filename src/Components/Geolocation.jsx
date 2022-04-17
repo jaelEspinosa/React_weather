@@ -82,32 +82,38 @@ const Geolocation = ({ dataLat, dataLong }) => {
           </section>
           <section className="daily-item">
             <p>dia 2</p>
-            <h6>{parseInt(climaForesCast[1].temp.max)}º-{parseInt(climaForesCast[1].temp.min)}º</h6>
+            <p>Min.{parseInt(climaForesCast[1].temp.min)}º</p>
+            <p>Máx.{parseInt(climaForesCast[1].temp.max)}º</p>
             <img src={`http://openweathermap.org/img/wn/${climaForesCast[1].weather[0].icon}.png`} alt='nube'></img>
           </section>
           <section className="daily-item">
             <p>dia 3</p>
-            <h6>{parseInt(climaForesCast[2].temp.max)}º-{parseInt(climaForesCast[2].temp.min)}º</h6>
+            <p>Min.{parseInt(climaForesCast[2].temp.min)}º</p>
+            <p>Máx.{parseInt(climaForesCast[2].temp.max)}º</p>
             <img src={`http://openweathermap.org/img/wn/${climaForesCast[2].weather[0].icon}.png`} alt='nube'></img>
           </section>
           <section className="daily-item">
             <p>dia 4</p>
-            <h6>{parseInt(climaForesCast[3].temp.max)}º-{parseInt(climaForesCast[3].temp.min)}º</h6>
+            <p>Min.{parseInt(climaForesCast[3].temp.min)}º</p>
+            <p>Máx.{parseInt(climaForesCast[3].temp.max)}º</p>
             <img src={`http://openweathermap.org/img/wn/${climaForesCast[3].weather[0].icon}.png`} alt='nube'></img>
           </section>
           <section className="daily-item">
             <p>dia 5</p>
-            <h6>{parseInt(climaForesCast[4].temp.max)}º-{parseInt(climaForesCast[4].temp.min)}º</h6>
+            <p>Min.{parseInt(climaForesCast[4].temp.min)}º</p>
+            <p>Máx.{parseInt(climaForesCast[4].temp.max)}º</p>
             <img src={`http://openweathermap.org/img/wn/${climaForesCast[4].weather[0].icon}.png`} alt='nube'></img>
           </section>
           <section className="daily-item">
             <p>dia 6</p>
-            <h6>{parseInt(climaForesCast[5].temp.max)}º-{parseInt(climaForesCast[5].temp.min)}º</h6>
+            <p>Min.{parseInt(climaForesCast[5].temp.min)}º</p>
+            <p>Máx.{parseInt(climaForesCast[5].temp.max)}º</p>
             <img src={`http://openweathermap.org/img/wn/${climaForesCast[5].weather[0].icon}.png`} alt='nube'></img>
           </section>
           <section className="daily-item">
             <p>dia 7</p>
-            <h6>{parseInt(climaForesCast[6].temp.max)}º-{parseInt(climaForesCast[6].temp.min)}º</h6>
+            <p>Min.{parseInt(climaForesCast[6].temp.min)}º</p>
+            <p>Máx.{parseInt(climaForesCast[6].temp.max)}º</p>
             <img src={`http://openweathermap.org/img/wn/${climaForesCast[6].weather[0].icon}.png`} alt='nube'></img>
           </section>
         
