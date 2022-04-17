@@ -71,7 +71,7 @@ const Geolocation = ({ dataLat, dataLong }) => {
         
         </div>
       </div>}
-      <h5>Próximos 7 dias</h5>
+      <h5 className="title-daily">Previsión próx. 7 dias</h5>
     { climaForesCast[0] && <div className="daily">
           
           <section className="daily-item">
