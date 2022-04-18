@@ -18,6 +18,7 @@ function App() {
   const day = new Date().getDate();
   const year = new Date().getFullYear();
   const meses = ['Enero','Feb','Marzo','Abril','Mayo','Jun','Jul','Agosto','Sep','Nov','Dic'] 
+  const [find, setFind]=useState('')
   
   const [isLoading, setIsLoading] = useState(false)
  
@@ -50,7 +51,7 @@ function App() {
     <Router>
     <div className="App">
     <LoadingContext.Provider value = {{setIsLoading,isLoading}}>
-    <DateContext.Provider value = {{fecha, setFecha, month,day,year,meses}}>
+    <DateContext.Provider value = {{fecha, setFecha, month,day,year,meses,find,setFind}}>
     <Routes>
          <Route path = '/' element = {<Home/>}/>
          <Route path = '/City' element = {<City/>}/>

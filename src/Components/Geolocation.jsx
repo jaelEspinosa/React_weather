@@ -2,14 +2,15 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { DateContext } from "../Context/DateContext";
 import { LoadingContext } from "../Context/LoadingContext";
+import ubicacion from '../img/ubicacion2.png'
+import Buscador from "./Buscador";
 import './Geolacation.css'
 import Loading from "./Loading";
 import Time from "./Time";
 const Geolocation = ({ dataLat, dataLong }) => {
   /* console.log("desde geocomp ", dataLat, dataLong); */
   /* const {fecha, setFecha,month,day,year,meses}=useContext(DateContext)  */ 
-let dia1
-let dia2
+
 let dia3 
 let dia4 
 let dia5
@@ -20,7 +21,8 @@ const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábad
   const appID = "6363134c59c25df7b5455dc83fa23a67";
   const urlcoord = `https://api.openweathermap.org/data/2.5/weather?lat=${dataLat}&lon=${dataLong}&appid=${appID}&lang=es`;
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${'ciudad'},${'pais'}&appid=${appID}&lang=${'idioma'}`;
-  const urlForeCast = `https://api.openweathermap.org/data/2.5/onecall?lat=${dataLat}&lon=${dataLong}&exclude=minutely,alerts,&appid=${appID}&lang=es&units=metric`                                                                         /* const iconUrl = "https://openweathermap.org/weather-conditions/"; para el icono*/
+  const urlForeCast = `https://api.openweathermap.org/data/2.5/onecall?lat=${dataLat}&lon=${dataLong}&exclude=minutely,alerts,&appid=${appID}&lang=es&units=metric`
+     /* const iconUrl = "https://openweathermap.org/weather-conditions/"; para el icono*/
   const {isLoading, setIsLoading}=useContext(LoadingContext)
 
   const [clima, setClima] = useState({
@@ -66,8 +68,7 @@ const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábad
   },100);
     
    if (climaForesCast[0]){
-    dia1 = new Date((climaForesCast[0].dt)*1000).getDay() 
-    dia2 = new Date((climaForesCast[1].dt)*1000).getDay() 
+    
     dia3 = new Date((climaForesCast[2].dt)*1000).getDay() 
     dia4 = new Date((climaForesCast[3].dt)*1000).getDay() 
     dia5 = new Date((climaForesCast[4].dt)*1000).getDay() 
@@ -78,9 +79,10 @@ const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábad
 
   return (
     <div className="weather-contain">
+        <Buscador/>
         <Loading/>
         {!isNaN(clima.temp) && <div >        
-        <h1>{clima.name}</h1>
+        <h1 className="logo">{clima.name} <img className="logo" src = {ubicacion} alt = 'ubicacion'></img></h1>
         <Time/>
         <h1>Actual: {parseInt(clima.temp - 273.15)}º</h1>
         <h3>Máx: {parseInt(climaForesCast[0].temp.max)}º</h3>
@@ -97,18 +99,18 @@ const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábad
         
         </div>
       </div>}
-      <h5 className="title-daily">Previsión próx. 7 dias</h5>
+      <h5 className="title-daily">Previsión próx. dias</h5>
     { climaForesCast[0] && <div className="daily">
           
-          <section className="daily-item">
+         {/*  <section className="daily-item">
             <p><strong>Hoy</strong></p>
             <p>Min.{parseInt(climaForesCast[0].temp.min)}º</p>
             <p>Max.{parseInt(climaForesCast[0].temp.max)}º</p>
             <img src={`http://openweathermap.org/img/wn/${climaForesCast[0].weather[0].icon}.png`} alt='nube'></img>
-          </section>
+          </section> */}
 
           <section className="daily-item">
-            <p><strong>{dias[dia2]}</strong></p>
+            <p><strong>Mañana</strong></p>
             <p>Min.{parseInt(climaForesCast[1].temp.min)}º</p>
             <p>Máx.{parseInt(climaForesCast[1].temp.max)}º</p>
             <img src={`http://openweathermap.org/img/wn/${climaForesCast[1].weather[0].icon}.png`} alt='nube'></img>

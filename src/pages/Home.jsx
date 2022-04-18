@@ -9,11 +9,7 @@ const Home = ()=>{
     let [lat, setLat]= useState('')
     let [long, setLong]=useState('')
     
-    const idioma = 'sp, es'
-    const appID = '6363134c59c25df7b5455dc83fa23a67'
-    const ciudad = 'madrid'
-    const pais = 'ES'
-    const appID2='2c7cf0c9bfb0b3c9124e031b9a18e4fa'
+  
     useEffect(()=>{
         
         const getCoord=()=>{
@@ -34,3 +30,13 @@ const Home = ()=>{
 }
 
 export default Home
+
+
+
+
+
+ /*  const idioma = 'sp, es'
+    const appID = '6363134c59c25df7b5455dc83fa23a67'
+    const ciudad = 'madrid'
+    const pais = 'ES'
+    const appID2='2c7cf0c9bfb0b3c9124e031b9a18e4fa' */
