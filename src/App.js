@@ -7,12 +7,18 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import Home from './pages/Home';
 import City from './pages/City';
 import { LoadingContext } from './Context/LoadingContext';
+import { DateContext } from './Context/DateContext';
 
 
 function App() {
   let [lat, setLat]= useState('')
   let [long, setLong]=useState('')
-
+  const [fecha, setFecha]=useState('')
+  const month = new Date().getMonth();
+  const day = new Date().getDate();
+  const year = new Date().getFullYear();
+  const meses = ['Enero','Feb','Marzo','Abril','Mayo','Jun','Jul','Agosto','Sep','Nov','Dic'] 
+  
   const [isLoading, setIsLoading] = useState(false)
  
   useEffect(()=>{
@@ -44,13 +50,13 @@ function App() {
     <Router>
     <div className="App">
     <LoadingContext.Provider value = {{setIsLoading,isLoading}}>
-    
-
+    <DateContext.Provider value = {{fecha, setFecha, month,day,year,meses}}>
     <Routes>
          <Route path = '/' element = {<Home/>}/>
          <Route path = '/City' element = {<City/>}/>
 
     </Routes>
+    </DateContext.Provider>
     </LoadingContext.Provider>
     </div>
     </Router>
