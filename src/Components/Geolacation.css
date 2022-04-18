@@ -11,13 +11,14 @@ h1 h2 h3 h4 p{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding:5px;
-    border:1px solid black;
-    margin:45px 10px;
+    /* padding:5px; */
+    /* border:1px solid black; */
+    /* margin:45px 10px; */
     border-radius: 10px;
-    box-shadow: 3px 3px 19px black;
+    /* box-shadow: 3px 3px 19px black; */
     background-color:rgb(211, 211, 211);
-    width: 92vw;
+    width: 100vw;
+    height: 100vh;
     max-width: 1200px;
     min-height: 600px;
     
