@@ -82,7 +82,7 @@ const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábad
         {!isNaN(clima.temp) && <div >        
         <h1>{clima.name}</h1>
         <Time/>
-        <h2>{parseInt(clima.temp - 273.15)}º</h2>
+        <h1>Actual: {parseInt(clima.temp - 273.15)}º</h1>
         <h3>Máx: {parseInt(climaForesCast[0].temp.max)}º</h3>
         <h3>Min: {parseInt(climaForesCast[0].temp.min)}º</h3>
         <p>Sensación term.{parseInt(clima.feels_like-273.15)}º</p>
