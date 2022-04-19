@@ -101,3 +101,19 @@ h1 h2 h3 h4 p{
     background-repeat: no-repeat;
     background-size: cover;
 }
+.firma img{
+    
+    
+    width: 40px;
+    
+}
+.firma{
+    width: 80vw;
+    max-width: 800px;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap:50px;
+    
+    
+}

@@ -7,6 +7,7 @@ import Buscador from "./Buscador";
 import './Geolacation.css'
 import Loading from "./Loading";
 import Time from "./Time";
+import logo from '../img/logo.png'
 const Geolocation = ({ dataLat, dataLong }) => {
   /* console.log("desde geocomp ", dataLat, dataLong); */
   /* const {fecha, setFecha,month,day,year,meses}=useContext(DateContext)  */ 
@@ -170,8 +171,12 @@ const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábad
         
         
         </div>}  
-     
-    </div>
+        <div className="firma">
+        <p>weather by JaelEspinosa ©</p>
+        <img src={logo} alt='logo'></img>
+        </div>
+
+         </div>
   );
 };
 
