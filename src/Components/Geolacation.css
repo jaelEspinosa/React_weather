@@ -21,6 +21,7 @@ h1 h2 h3 h4 p{
     height: 100vh;
     max-width: 800px;
     min-height: 600px;
+    font-weight: bolder;
     
     
 }
@@ -63,4 +64,17 @@ h1 h2 h3 h4 p{
     background-image: url('../img/despejado.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    
+}
+.nubes{
+    background-image: url('../img/nublado.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.algunaNube{
+    background-image: url('../img/alguna_nube.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
 }

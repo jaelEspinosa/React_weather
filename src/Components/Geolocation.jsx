@@ -10,12 +10,12 @@ import Time from "./Time";
 const Geolocation = ({ dataLat, dataLong }) => {
   /* console.log("desde geocomp ", dataLat, dataLong); */
   /* const {fecha, setFecha,month,day,year,meses}=useContext(DateContext)  */ 
-
-let dia3 
-let dia4 
-let dia5
-let dia6
-let dia7
+let Background;
+let dia3; 
+let dia4; 
+let dia5;
+let dia6;
+let dia7;
 const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado']
   
   const appID = "6363134c59c25df7b5455dc83fa23a67";
@@ -76,9 +76,19 @@ const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábad
     dia7 = new Date((climaForesCast[6].dt)*1000).getDay() 
     
    }
+   if(clima.main === "Clear"){
+    Background= "weather-contain despejado"
+  }else if (clima.descrip === "nubes"){
+    Background= "weather-contain nubes"
+  }else if (clima.descrip==='nubes dispersas'){
+    Background= "weather-contain algunaNube"
+  
+  }else{
+    Background= "weather-contain"
+  }
 
   return (
-    <div className="weather-contain">
+    <div className={Background}>
         <Buscador/>
         <Loading/>
         {!isNaN(clima.temp) && <div >        

@@ -35,6 +35,7 @@ const City = ()=>{
     descrip: "",
     feels_like:"",
     wind:"",
+    main:"",
   });
   
   const [climaForesCast, setClimaForeCast]=useState([])
@@ -58,7 +59,8 @@ const City = ()=>{
         icono: res.data.weather[0].icon,
         descrip: res.data.weather[0].description,
         feels_like:res.data.main.feels_like,
-        wind:res.data.wind.speed
+        wind:res.data.wind.speed,
+        main:res.data.weather[0].main
       });
     
     };
@@ -68,13 +70,23 @@ const City = ()=>{
   setTimeout(() => {
     setIsLoading(false)
   },100);
+  
  
+if(clima.main === "Clear"){
+  Background= "weather-contain despejado"
+}else if (clima.descrip === "nubes"){
+  Background= "weather-contain nubes"
+}else if (clima.descrip==='nubes dispersas'){
+  Background= "weather-contain algunaNube"
 
+}else{
+  Background= "weather-contain"
+}
 
 
  console.log('La busqueda es', find)
 
-   return  <div className="weather-contain">
+   return  <div className={Background}>
                 
         {clima.temp && (clima.temp) && <div >        
         <h1 className="logo">{find.toUpperCase()} </h1>
