@@ -78,13 +78,20 @@ const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábad
    }
    if(clima.main === "Clear"){
     Background= "weather-contain despejado"
-  }else if (clima.descrip === "nubes"){
+  }else if (clima.descrip === "nubes" || clima.descrip === "muy nuboso"){
     Background= "weather-contain nubes"
-  }else if (clima.descrip==='nubes dispersas'){
+  }else if (clima.descrip==='nubes dispersas'|| clima.descrip==='algo de nubes'){
     Background= "weather-contain algunaNube"
-  
-  }else{
-    Background= "weather-contain"
+  }else if(clima.main==='Rain' || clima.main ==='Drizzle'){
+    Background= "weather-contain rain"
+  }else if(clima.main==='Thunderstorm'){
+    Background= "weather-contain Thunderstorm"
+  }else if(clima.main ==="Snow"){
+    Background= "weather-contain Snow"
+  }else if(clima.main === 'Mist' || clima.main==='Haze'){
+    Background= "weather-contain mist"
+    }else{
+    Background= "weather-contain"  
   }
 
   return (

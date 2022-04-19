@@ -11,6 +11,7 @@ import lluvia from  '../img/lluvia.jpg'
 import nieve from  '../img/nevando.jpg'
 import nublado from  '../img/nublado.jpg'
 import niebla from  '../img/niebla.jpg'
+import arrowLeft from '../img/arrow-left.png'
 
 
 
@@ -74,13 +75,20 @@ const City = ()=>{
  
 if(clima.main === "Clear"){
   Background= "weather-contain despejado"
-}else if (clima.descrip === "nubes"){
+}else if (clima.descrip === "nubes" || clima.descrip === "muy nuboso"){
   Background= "weather-contain nubes"
-}else if (clima.descrip==='nubes dispersas'){
+}else if (clima.descrip==='nubes dispersas'|| clima.descrip==='algo de nubes'){
   Background= "weather-contain algunaNube"
-
-}else{
-  Background= "weather-contain"
+}else if(clima.main==='Rain' || clima.main ==='Drizzle'){
+  Background= "weather-contain rain"
+}else if(clima.main==='Thunderstorm'){
+  Background= "weather-contain Thunderstorm"
+}else if(clima.main ==="Snow"){
+  Background= "weather-contain Snow"
+}else if(clima.main === 'Mist' || clima.main==='Haze'){
+  Background= "weather-contain mist"
+  }else{
+  Background= "weather-contain"  
 }
 
 
@@ -106,7 +114,7 @@ if(clima.main === "Clear"){
         
         </div>
       </div>}
-      <h5 className="title-daily">Previsión próx. horas/dias</h5>
+      <h5 className="title-daily">Próx. dias/ cada  4 Horas</h5>
       { climaForesCast[1] && <div className="daily">
           
        
@@ -151,8 +159,9 @@ if(clima.main === "Clear"){
         
         
         </div>}
-      
-      <Link to = '/'><h3>Back</h3></Link> 
+      <div>
+      <Link to = '/'><img className="arrowLeft" src ={arrowLeft} alt='flecha'></img></Link>         
+      </div>
         
     </div>
 }

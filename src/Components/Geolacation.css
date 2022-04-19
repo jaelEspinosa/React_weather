@@ -22,6 +22,7 @@ h1 h2 h3 h4 p{
     max-width: 800px;
     min-height: 600px;
     font-weight: bolder;
+    color:rgb(26, 49, 49)
     
     
 }
@@ -44,6 +45,7 @@ h1 h2 h3 h4 p{
     border:1px solid black;
     border-radius: 10px;
     padding:5px;
+    background-color: rgba(157, 228, 228, 0.295);
 }
 .daily-item{    
     width: 8vw;
@@ -70,6 +72,7 @@ h1 h2 h3 h4 p{
     background-image: url('../img/nublado.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: rgba(245, 243, 241, 0.822);
     
 }
 .algunaNube{
@@ -77,4 +80,24 @@ h1 h2 h3 h4 p{
     background-repeat: no-repeat;
     background-size: cover;
     
+}
+.rain{
+    background-image: url('../img/lluvia.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.Thunderstorm{
+    background-image: url('../img/Thunderstorm.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.Snow{
+    background-image: url('../img/nieve.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.mist{
+    background-image: url('../img/niebla.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
