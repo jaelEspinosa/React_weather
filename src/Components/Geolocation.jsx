@@ -77,7 +77,7 @@ const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábad
     dia7 = new Date((climaForesCast[6].dt)*1000).getDay() 
     
    }
-   if(clima.main === "Clear"){
+   if(clima.main === "Clear" || clima.descrip === 'cielo claro'){
     Background= "weather-contain despejado"
   }else if (clima.descrip === "nubes" || clima.descrip === "muy nuboso"){
     Background= "weather-contain nubes"

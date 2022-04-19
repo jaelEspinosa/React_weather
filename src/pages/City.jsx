@@ -73,7 +73,7 @@ const City = ()=>{
   },100);
   
  
-if(clima.main === "Clear"){
+if(clima.main === "Clear" || clima.descrip === 'cielo claro' ){
   Background= "weather-contain despejado"
 }else if (clima.descrip === "nubes" || clima.descrip === "muy nuboso"){
   Background= "weather-contain nubes"
