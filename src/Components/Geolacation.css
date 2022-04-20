@@ -72,7 +72,7 @@ h1 h2 h3 h4 p{
     background-image: url('../img/nublado.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: rgba(245, 243, 241, 0.822);
+    color:white;
     
 }
 .algunaNube{
@@ -95,14 +95,14 @@ h1 h2 h3 h4 p{
     background-image: url('../img/nieve.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    
 }
 .mist{
     background-image: url('../img/niebla.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
-.firma img{
-    
+.firma img{   
     
     width: 40px;
     

@@ -85,7 +85,7 @@ if(clima.main === "Clear" || clima.descrip === 'cielo claro' ){
   Background= "weather-contain Thunderstorm"
 }else if(clima.main ==="Snow"){
   Background= "weather-contain Snow"
-}else if(clima.main === 'Mist' || clima.main==='Haze'){
+}else if(clima.main === 'Mist' || clima.main==='Haze'|| clima.main==='Fog'){
   Background= "weather-contain mist"
   }else{
   Background= "weather-contain"  
