@@ -77,23 +77,26 @@ const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábad
     dia7 = new Date((climaForesCast[6].dt)*1000).getDay() 
     
    }
-   if(clima.main === "Clear" || clima.descrip === 'cielo claro'){
+   if(clima.main === "Clear" || clima.descrip === 'cielo claro' ){
     Background= "weather-contain despejado"
   }else if (clima.descrip === "nubes" || clima.descrip === "muy nuboso"){
     Background= "weather-contain nubes"
   }else if (clima.descrip==='nubes dispersas'|| clima.descrip==='algo de nubes'){
     Background= "weather-contain algunaNube"
-  }else if(clima.main==='Rain' || clima.main ==='Drizzle'){
+  }else if(clima.main ==='Rain' || clima.main ==='Drizzle' || clima.descrip === 'lluvia ligera' ){
     Background= "weather-contain rain"
   }else if(clima.main==='Thunderstorm'){
     Background= "weather-contain Thunderstorm"
   }else if(clima.main ==="Snow"){
     Background= "weather-contain Snow"
-  }else if(clima.main === 'Mist' || clima.main==='Haze' || clima.main==='Fog'){
+  }else if(clima.main === 'Mist' || clima.main==='Haze'|| clima.main==='Fog'){
     Background= "weather-contain mist"
+  }else if( clima.descrip === 'shower rain' || clima.descrip === "lluvia moderada"){
+    Background = 'weather-conatain rain'   
     }else{
     Background= "weather-contain"  
   }
+  
 
   return (
     <div className={Background}>

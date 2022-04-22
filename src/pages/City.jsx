@@ -69,7 +69,7 @@ const City = ()=>{
     getWeather();
   }, []);
   setTimeout(() => {
-    setIsLoading(false)
+    setIsLoading(false) 
   },100);
   
  
@@ -79,7 +79,7 @@ if(clima.main === "Clear" || clima.descrip === 'cielo claro' ){
   Background= "weather-contain nubes"
 }else if (clima.descrip==='nubes dispersas'|| clima.descrip==='algo de nubes'){
   Background= "weather-contain algunaNube"
-}else if(clima.main==='Rain' || clima.main ==='Drizzle'){
+}else if(clima.main==='Rain' || clima.main ==='Drizzle' || clima.descrip === "lluvia ligera" ){
   Background= "weather-contain rain"
 }else if(clima.main==='Thunderstorm'){
   Background= "weather-contain Thunderstorm"
@@ -87,6 +87,8 @@ if(clima.main === "Clear" || clima.descrip === 'cielo claro' ){
   Background= "weather-contain Snow"
 }else if(clima.main === 'Mist' || clima.main==='Haze'|| clima.main==='Fog'){
   Background= "weather-contain mist"
+}else if( clima.descrip === 'shower rain' || clima.descrip === "lluvia moderada"){
+  Background = 'weather-conatain rain'   
   }else{
   Background= "weather-contain"  
 }
