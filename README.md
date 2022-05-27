@@ -14,13 +14,20 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 <p>Se trata de una app en la que puedes consultar el tiempo desde la ubicación del dispositivo, o bien buscar por cualquier ciudad</p>
 
+<p>He utilizado Axios para las peticiones a la api weather</p>
 
-<p>POR UBICACIÓN</p>
+<p>React Hook Form para el buscador</p>
 
-![Image text](https://github.com/jaelEspinosa/React_weather/blob/master/src/img/weather1.jpg)
-
-<p>POR BUSQUEDA</p>
-
-![Image text](https://github.com/jaelEspinosa/React_weather/blob/master/src/img/weather2.jpg)
+<p>React Router Dom para la paginación</p>
 
 
+<div style = "display:flex; gap:25px ; justify-content: space-arround" style = "gap:35px">
+  <div>
+    <p> POR UBICACIÓN </p>
+    <img  style = "width: 150px;" src= 'https://github.com/jaelEspinosa/React_weather/blob/master/src/img/weather1.jpg' />
+  </div>
+  <div>
+     <p> POR BUSQUEDA </p>
+     <img style = "width: 150px;" src = 'https://github.com/jaelEspinosa/React_weather/blob/master/src/img/weather2.jpg'/>
+  </div>
+</div>
