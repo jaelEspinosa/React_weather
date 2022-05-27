@@ -53,7 +53,8 @@ const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábad
         icono: res.data.weather[0].icon,
         descrip: res.data.weather[0].description,
         feels_like:res.data.main.feels_like,
-        wind:res.data.wind.speed
+        wind:res.data.wind.speed,
+        id:res.data.weather[0].id
       });
     };
     
@@ -77,7 +78,7 @@ const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábad
     dia7 = new Date((climaForesCast[6].dt)*1000).getDay() 
     
    }
-   if(clima.main === "Clear" || clima.descrip === 'cielo claro' ){
+   if(clima.id === 800){
     Background= "weather-contain despejado"
   }else if (clima.descrip === "nubes" || clima.descrip === "muy nuboso"){
     Background= "weather-contain nubes"

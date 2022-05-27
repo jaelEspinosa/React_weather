@@ -61,7 +61,8 @@ const City = ()=>{
         descrip: res.data.weather[0].description,
         feels_like:res.data.main.feels_like,
         wind:res.data.wind.speed,
-        main:res.data.weather[0].main
+        main:res.data.weather[0].main,
+        id:res.data.weather[0].id
       });
     
     };
