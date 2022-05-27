@@ -23,7 +23,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 <div style = "display:flex; gap:35px; justify-content: space-arround; flex-direction:row">
  <p> POR UBICACIÓN Y POR BUSQUEDA</p>
- <img  style = "width: 100px;" src= 'https://github.com/jaelEspinosa/React_weather/blob/master/src/img/montaje.jpg' />
+ <img  style = "width: 250px;" src= 'https://github.com/jaelEspinosa/React_weather/blob/master/src/img/montaje.jpg' />
   
   
 
