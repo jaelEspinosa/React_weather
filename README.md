@@ -22,11 +22,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 
 <div style = "display:flex; gap:25px ; justify-content: space-arround; flex-direction:row" style = "gap:35px">
- 
+  <div>
     <p> POR UBICACIÓN </p>
     <img  style = "width: 100px;" src= 'https://github.com/jaelEspinosa/React_weather/blob/master/src/img/weather1.jpg' />
-  
+  </div>
+  <div>
      <p> POR BUSQUEDA </p>
      <img  style = "width: 100px;" src = 'https://github.com/jaelEspinosa/React_weather/blob/master/src/img/weather2.jpg'/>
-  
+  </div>
 </div>
