@@ -13,5 +13,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 
 <p>Se trata de una app en la que puedes consultar el tiempo desde la ubicación del dispositivo, o bien buscar por cualquier ciudad</p>
-
-<img></img>
+![alt](weather1.png)
