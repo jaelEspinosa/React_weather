@@ -18,4 +18,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 ![alt ='foto'](https://ibb.co/tpLdhWL)
 
 
-![foto](https://ibb.co/nBgk00Q)
+![foto](https://ibb.co/tpLdhWL)
