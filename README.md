@@ -22,11 +22,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 
 <div style = "display: inline-block"; style = "gap:35px">
-  <div>
+  <div style = "display: inline-block">
     <p> POR UBICACIÓN </p>
     <img  style = "width: 150px;" src= 'https://github.com/jaelEspinosa/React_weather/blob/master/src/img/weather1.jpg' />
   </div>
-  <div>
+  <div style = "display: inline-block">
      <p> POR BUSQUEDA </p>
      <img style = "width: 150px;" src = 'https://github.com/jaelEspinosa/React_weather/blob/master/src/img/weather2.jpg'/>
   </div>
