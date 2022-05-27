@@ -18,3 +18,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 
 ![Image text](https://github.com/jaelEspinosa/React_weather/blob/master/src/img/weather1.jpg)
+![Image text](https://github.com/jaelEspinosa/React_weather/blob/master/src/img/weather2.jpg)
+![Image text](https://github.com/jaelEspinosa/React_weather/blob/master/src/img/weather3.jpg)
