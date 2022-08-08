@@ -7,3 +7,8 @@ a{
     width: 35px;
     margin-top:30px;
 }
+.no-encontrada{
+    text-transform: uppercase;
+    color: red;
+    font-weight: 800;
+}

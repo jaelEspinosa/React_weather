@@ -8,6 +8,7 @@ import './City.css'
 
 import back from '../img/previous.png'
 import { formatearFecha, nuevaHora } from "../helpers";
+import Loading from "../Components/Loading";
 
 
 
@@ -22,7 +23,7 @@ const City = ()=>{
  const url = `https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=${appID}&q=${find}&lang=es`;
  const urlForeCast1 =`https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=${appID}&q=${find}&units=metric&lang=es`
  
- const { setIsLoading}=useContext(LoadingContext)
+ const {loading, setIsLoading}=useContext(LoadingContext)
  const [clima, setClima] = useState({
     name: "",
     tempMax: "",
@@ -35,15 +36,14 @@ const City = ()=>{
   });
   
   const [climaForesCast, setClimaForeCast]=useState([])
-  
+  const [alerta, setAlerta] = useState('')
   useEffect(() => {
     setIsLoading(true)
     const getWeather = async () => {
-      const resForeCast = await axios.get(urlForeCast1); 
-      const res = await axios.get(url);      
-           
-     
-      setClimaForeCast(resForeCast.data.list)
+      try {
+        const resForeCast = await axios.get(urlForeCast1); 
+        const res = await axios.get(url); 
+        setClimaForeCast(resForeCast.data.list)
       
       
         setClima({
@@ -58,14 +58,20 @@ const City = ()=>{
         main:res.data.weather[0].main,
         id:res.data.weather[0].id
       });
+      setIsLoading(false) 
+      } catch (error) {
+        setAlerta('Ciudad No encontrada')
+      }
+           
+           
+     
+     
     
     };
     
     getWeather();
   }, []);
-  setTimeout(() => {
-    setIsLoading(false) 
-  },100);
+
   
   console.log (climaForesCast) 
 if(clima.main === "Clear" || clima.descrip === 'cielo claro' ){
@@ -87,8 +93,9 @@ if(clima.main === "Clear" || clima.descrip === 'cielo claro' ){
   }else{
   Background= "weather-contain"  
 }
+   
    return  <div className={Background}>
-                
+           
         {clima.temp && (clima.temp) && <div >        
         <h2 className="logo">{find.toUpperCase()}</h2>
         <Time/>
@@ -105,12 +112,13 @@ if(clima.main === "Clear" || clima.descrip === 'cielo claro' ){
           {/* url base para el icono */}
           <h4>{clima.descrip.toUpperCase()}</h4>
         
-        </div>
+        </div> 
       </div>}
-      <h5 className="title-daily">previsión Próx. dias/ cada 3 Horas</h5>
+      {alerta && <h1 className="no-encontrada">Ciudad no Encontrada</h1>}
+      {loading ? <Loading /> : !alerta ? <h5 className="title-daily">previsión Próx. dias/ cada 3 Horas</h5>:null }
       { climaForesCast[0] && <div className="daily">
           {climaForesCast.map (clima => (
-            <section className="daily-item" key={clima.dt._txt}>
+            <section className="daily-item" key={clima.dt}>
             <p>{formatearFecha(clima.dt_txt)}, {nuevaHora(clima.dt_txt)}</p>
             <p>Min.{parseInt(clima.main.temp_max)}º</p>
             <p>Máx.{parseInt(clima.main.temp_min)}º</p>
@@ -119,7 +127,7 @@ if(clima.main === "Clear" || clima.descrip === 'cielo claro' ){
           ))}            
         </div>}
       <div>
-      <Link to = '/'><img className="arrowLeft" src ={back} alt='flecha'></img></Link>         
+      <Link onclick={()=>setAlerta('')}to = '/'><img className="arrowLeft" src ={back} alt='flecha'></img></Link>         
       </div>
         
     </div>
