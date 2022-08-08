@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { DateContext } from "../Context/DateContext";
 import { LoadingContext } from "../Context/LoadingContext";
 import ubicacion from '../img/ubicacion2.png'
 import Buscador from "./Buscador";
@@ -9,8 +8,7 @@ import Loading from "./Loading";
 import Time from "./Time";
 import logo from '../img/logo.png'
 const Geolocation = ({ dataLat, dataLong }) => {
-  /* console.log("desde geocomp ", dataLat, dataLong); */
-  /* const {fecha, setFecha,month,day,year,meses}=useContext(DateContext)  */ 
+  
 let Background;
 let dia3; 
 let dia4; 
@@ -21,10 +19,9 @@ const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábad
   
   const appID = "6363134c59c25df7b5455dc83fa23a67";
   const urlcoord = `https://api.openweathermap.org/data/2.5/weather?lat=${dataLat}&lon=${dataLong}&appid=${appID}&lang=es`;
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${'ciudad'},${'pais'}&appid=${appID}&lang=${'idioma'}`;
   const urlForeCast = `https://api.openweathermap.org/data/2.5/onecall?lat=${dataLat}&lon=${dataLong}&exclude=minutely,alerts,&appid=${appID}&lang=es&units=metric`
-     /* const iconUrl = "https://openweathermap.org/weather-conditions/"; para el icono*/
-  const {isLoading, setIsLoading}=useContext(LoadingContext)
+    
+  const {setIsLoading}=useContext(LoadingContext)
 
   const [clima, setClima] = useState({
     name: "",
@@ -61,8 +58,6 @@ const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábad
     getWeather();
   }, []);
 
-  /* console.log("mi clima", clima);
-  console.log("mi climafores", climaForesCast) */
   
 
   setTimeout(() => {
@@ -124,13 +119,7 @@ const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábad
       <h5 className="title-daily">Previsión próx. dias</h5>
     { climaForesCast[0] && <div className="daily">
           
-         {/*  <section className="daily-item">
-            <p><strong>Hoy</strong></p>
-            <p>Min.{parseInt(climaForesCast[0].temp.min)}º</p>
-            <p>Max.{parseInt(climaForesCast[0].temp.max)}º</p>
-            <img src={`http://openweathermap.org/img/wn/${climaForesCast[0].weather[0].icon}.png`} alt='nube'></img>
-          </section> */}
-
+       
           <section className="daily-item">
             <p><strong>Mañana</strong></p>
             <p>Min.{parseInt(climaForesCast[1].temp.min)}º</p>

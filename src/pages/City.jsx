@@ -1,17 +1,13 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react"
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Time from "../Components/Time";
 import { DateContext } from "../Context/DateContext"
 import { LoadingContext } from "../Context/LoadingContext";
 import './City.css'
-import algunaNuve from  '../img/alguna_nube.jpg'
-import despegado from  '../img/despejado.jpg'
-import lluvia from  '../img/lluvia.jpg'
-import nieve from  '../img/nevando.jpg'
-import nublado from  '../img/nublado.jpg'
-import niebla from  '../img/niebla.jpg'
-import arrowLeft from '../img/arrow-left.png'
+
+import back from '../img/previous.png'
+import { formatearFecha, nuevaHora } from "../helpers";
 
 
 
@@ -20,14 +16,13 @@ import arrowLeft from '../img/arrow-left.png'
 
 const City = ()=>{
  let Background;
- const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado']
+
  const {find}=useContext(DateContext)
  const appID = "6363134c59c25df7b5455dc83fa23a67";
  const url = `https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=${appID}&q=${find}&lang=es`;
- const urlForeCast = `https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,alerts,&appid=${appID}&q=${find}&lang=es`
  const urlForeCast1 =`https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=${appID}&q=${find}&units=metric&lang=es`
- let navigate = useNavigate()
- const {isLoading, setIsLoading}=useContext(LoadingContext)
+ 
+ const { setIsLoading}=useContext(LoadingContext)
  const [clima, setClima] = useState({
     name: "",
     tempMax: "",
@@ -47,11 +42,10 @@ const City = ()=>{
       const resForeCast = await axios.get(urlForeCast1); 
       const res = await axios.get(url);      
            
-      console.log('res.data es..',res.data);
-      console.log('foreCast',resForeCast.data)
+     
       setClimaForeCast(resForeCast.data.list)
-      console.log('foreCastarray',climaForesCast)
-           
+      
+      
         setClima({
         name: res.data.name,
         tempMax: res.data.main.temp_max,
@@ -73,7 +67,7 @@ const City = ()=>{
     setIsLoading(false) 
   },100);
   
- 
+  console.log (climaForesCast) 
 if(clima.main === "Clear" || clima.descrip === 'cielo claro' ){
   Background= "weather-contain despejado"
 }else if (clima.descrip === "nubes" || clima.descrip === "muy nuboso"){
@@ -93,14 +87,10 @@ if(clima.main === "Clear" || clima.descrip === 'cielo claro' ){
   }else{
   Background= "weather-contain"  
 }
-
-
- console.log('La busqueda es', find)
-
    return  <div className={Background}>
                 
         {clima.temp && (clima.temp) && <div >        
-        <h1 className="logo">{find.toUpperCase()} </h1>
+        <h2 className="logo">{find.toUpperCase()}</h2>
         <Time/>
         <h1>Actual: {parseInt(clima.temp - 273.15)}º</h1>
         <h3>Máx: {parseInt(clima.tempMax-273.15)}º</h3>
@@ -117,53 +107,19 @@ if(clima.main === "Clear" || clima.descrip === 'cielo claro' ){
         
         </div>
       </div>}
-      <h5 className="title-daily">Próx. dias/ cada  4 Horas</h5>
-      { climaForesCast[1] && <div className="daily">
-          
-       
-
-          <section className="daily-item">
-            <p><strong>{climaForesCast[1].dt_txt}</strong></p>
-            <p>Min.{parseInt(climaForesCast[1].main.temp_max)}º</p>
-            <p>Máx.{parseInt(climaForesCast[1].main.temp_min)}º</p>
-            <img src={`http://openweathermap.org/img/wn/${climaForesCast[1].weather[0].icon}.png`} alt='nube'></img>
+      <h5 className="title-daily">previsión Próx. dias/ cada 3 Horas</h5>
+      { climaForesCast[0] && <div className="daily">
+          {climaForesCast.map (clima => (
+            <section className="daily-item" key={clima.dt._txt}>
+            <p>{formatearFecha(clima.dt_txt)}, {nuevaHora(clima.dt_txt)}</p>
+            <p>Min.{parseInt(clima.main.temp_max)}º</p>
+            <p>Máx.{parseInt(clima.main.temp_min)}º</p>
+            <img src={`http://openweathermap.org/img/wn/${clima.weather[0].icon}.png`} alt='nube'></img>
           </section>
-          <section className="daily-item">
-            <p><strong>{climaForesCast[5].dt_txt}</strong></p>
-            <p>Min.{parseInt(climaForesCast[5].main.temp_max)}º</p>
-            <p>Máx.{parseInt(climaForesCast[5].main.temp_min)}º</p>
-            <img src={`http://openweathermap.org/img/wn/${climaForesCast[5].weather[0].icon}.png`} alt='nube'></img>
-          </section>
-          <section className="daily-item">
-            <p><strong>{climaForesCast[9].dt_txt}</strong></p>
-            <p>Min.{parseInt(climaForesCast[9].main.temp_max)}º</p>
-            <p>Máx.{parseInt(climaForesCast[9].main.temp_min)}º</p>
-            <img src={`http://openweathermap.org/img/wn/${climaForesCast[9].weather[0].icon}.png`} alt='nube'></img>
-          </section> <section className="daily-item">
-            <p><strong>{climaForesCast[13].dt_txt}</strong></p>
-            <p>Min.{parseInt(climaForesCast[13].main.temp_max)}º</p>
-            <p>Máx.{parseInt(climaForesCast[13].main.temp_min)}º</p>
-            <img src={`http://openweathermap.org/img/wn/${climaForesCast[13].weather[0].icon}.png`} alt='nube'></img>
-          </section>
-          <section className="daily-item">
-            <p><strong>{climaForesCast[17].dt_txt}</strong></p>
-            <p>Min.{parseInt(climaForesCast[17].main.temp_max)}º</p>
-            <p>Máx.{parseInt(climaForesCast[17].main.temp_min)}º</p>
-            <img src={`http://openweathermap.org/img/wn/${climaForesCast[17].weather[0].icon}.png`} alt='nube'></img>
-          </section>
-          <section className="daily-item">
-            <p><strong>{climaForesCast[21].dt_txt}</strong></p>
-            <p>Min.{parseInt(climaForesCast[21].main.temp_max)}º</p>
-            <p>Máx.{parseInt(climaForesCast[21].main.temp_min)}º</p>
-            <img src={`http://openweathermap.org/img/wn/${climaForesCast[21].weather[0].icon}.png`} alt='nube'></img>
-          </section>
-
-          
-        
-        
+          ))}            
         </div>}
       <div>
-      <Link to = '/'><img className="arrowLeft" src ={arrowLeft} alt='flecha'></img></Link>         
+      <Link to = '/'><img className="arrowLeft" src ={back} alt='flecha'></img></Link>         
       </div>
         
     </div>

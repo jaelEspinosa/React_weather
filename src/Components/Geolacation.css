@@ -6,6 +6,7 @@ h1 h2 h3 h4 p{
 
 
 .weather-contain{
+    padding-top: 2px;
     font-size: 14px;
     display: flex;
     flex-direction: column;
@@ -22,7 +23,8 @@ h1 h2 h3 h4 p{
     max-width: 800px;
     min-height: 600px;
     font-weight: bolder;
-    color:rgb(26, 49, 49)
+    color:rgb(31, 29, 29);
+    text-shadow: 1px 1px 2px white;
     
     
 }
@@ -35,26 +37,58 @@ h1 h2 h3 h4 p{
     align-items: center;
 }
 .daily{
-    width: 89vw;
+    width: 95vw;
     max-width: 600px;
     display:flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
     gap:10px;
     border:1px solid black;
     border-radius: 10px;
     padding:5px;
     background-color: rgba(157, 228, 228, 0.295);
+    overflow-x: scroll;
+    overflow-y: hidden;
+    
 }
-.daily-item{    
-    width: 8vw;
+.daily::-webkit-scrollbar{
+    height: 2px;
+ 
+}
+.daily::-webkit-scrollbar-thumb{
+    background:black;
+    
+    border:2px solid black;
+    border-radius: 10px;
+
+}
+@media(min-width:568px){
+    .daily::-webkit-scrollbar{
+        height: 5px;
+     
+    }
+    .daily::-webkit-scrollbar-thumb{
+        background:black;
+        
+        border:2px solid black;
+        border-radius: 10px;
+    
+    }
+}
+
+.daily-item{   
+    padding:2px 10px;
+    width:8vw; 
+    height: 25vh;   
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     font-size: 9px;
-    margin-left: 2px;        
+    margin-left: 2px; 
+    font-weight:bolder;
+    
+        
 }
 .title-daily{
     padding:0px;
@@ -73,6 +107,9 @@ h1 h2 h3 h4 p{
     background-repeat: no-repeat;
     background-size: cover;
     color:white;
+    text-shadow: 1px 1px 2px rgb(41, 40, 40);
+    font-weight: 400;
+
     
 }
 .algunaNube{
